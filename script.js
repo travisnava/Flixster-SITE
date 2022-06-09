@@ -51,7 +51,7 @@ loadBtn.addEventListener("click", (evt) => {
 
 async function getResults(apiUrl) {
     let response =  await fetch(apiUrl);
-    offset += 0;
+    offset += 1;
     console.log("Page offset =", offset);
     console.log("response is: ", response);
     let responseData =  await response.json();
@@ -80,6 +80,7 @@ function displayResults(moviesList) {
 
 function closeButton() {
     form.reset();
+    location.reload();
 }
 
 
