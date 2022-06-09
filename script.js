@@ -13,7 +13,6 @@ let movieSearchForm = document.querySelector("#form");
 let movieGrid = document.querySelector("#movies-grid");
 let closeBtn = document.querySelector("#close-search-btn");
 let loadBtn = document.querySelector("#load-more-movies-btn");
-
 let searchInput = document.querySelector("#search-input");
 
 
@@ -66,7 +65,7 @@ function displayResults(moviesList) {
         movieGrid.innerHTML += ` 
         <div class = "movie-card">
             <h2 class = "movie-title">${movie.original_title}</h2>
-            <img class = "movie-poster" src="https://image.tmdb.org/t/p/w400/${movie.poster_path}" alt="Poster for ${movie.original_title}">
+            <img class = "movie-poster" onclick="popupWindow()" src="https://image.tmdb.org/t/p/w400/${movie.poster_path}" alt="Poster for ${movie.original_title}">
             <div class ="voting-info"><img class = "movie-voting-image" src="star.png" alt="Star emoticon" width = "40px" height = "40px"></img><p class ="movie-votes">${movie.vote_average} - </p>
             <p class = "movie-release-date">Released on ${movie.release_date}</p></div>
         </div>`
@@ -75,7 +74,9 @@ function displayResults(moviesList) {
 
 
 
-
+function popupWindow() {
+    
+}
 
 
 function closeButton() {
