@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flixster - Travis Navarro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id = "heading">
+        <h1 id="heading">Flixster</h1>
+        <img src="popcorn.png" id = "heading-image" alt="Movie camera emoticon" width = "100px" height = "100px">
+    </div>
+
+
+    <div id = "subheadings">
+        <h2 id="subheading"><em>Now playing in select theatres</em></h2>
+        <form id="form"> 
+            <input type="search-input" id="search-btn" name="movie" placeholder="Search...">
+            <button onclick="revealButton()" id="search-btn">Find Movies</button>
+            <button onclick="closeSearch()" id="close-search-btn"> Close</button>
+        </form>
+    </div>
+
+
+
+
+
+    <div id ="movies-grid">
+
+        <span class = "movie-card">
+            <h2 class = "movie-title"></h2>
+            <img class = "movie-poster" src="" alt="">
+            <p class ="movie-votes"></p>
+        </span>
+
+
+    </div>
+
+
+
+
+
+
+    
+    <div id="load-btn">
+        <button id = "load-more-movies-btn" onclick = "">
+            Load more movies!
+        </button>
+    </div> 
+
+
+
+
+    <script src = "script.js"></script>
+</body>
+</html>
