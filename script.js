@@ -35,8 +35,15 @@ movieSearchForm.addEventListener("submit", (evt) => {
 loadBtn.addEventListener("click", (evt) => {
     evt.preventDefault(); // prevent page from reload
     console.log("search term is =", searchTerm);
-    let apiUrl = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey + "&query=" + searchTerm + "&page=" + offset;
-    console.log(getResults(apiUrl));
+    if (searchTerm === "") {
+        let apiUrl = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + apiKey + "&language=en-US" + "&page=" + offset
+        getResults(apiUrl);
+    }
+    else {
+        let apiUrl = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey + "&query=" + searchTerm + "&page=" + offset;
+        console.log(getResults(apiUrl));
+    }
+
 })
 
 
@@ -44,7 +51,7 @@ loadBtn.addEventListener("click", (evt) => {
 
 async function getResults(apiUrl) {
     let response =  await fetch(apiUrl);
-    offset += 1;
+    offset += 0;
     console.log("Page offset =", offset);
     console.log("response is: ", response);
     let responseData =  await response.json();
@@ -73,10 +80,17 @@ function displayResults(moviesList) {
 
 function closeButton() {
     form.reset();
-
 }
 
 
 function revealButton() {
     loadBtn.style.display = "inline-block";
+}
+
+
+window.onload = function() {
+
+    let apiUrl = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + apiKey + "&language=en-US" + "&page=" + offset
+    getResults(apiUrl);
+
 }
