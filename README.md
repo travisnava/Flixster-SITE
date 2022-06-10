@@ -49,11 +49,11 @@ Deployed Application (optional): https://travisnava.github.io/Flixster-SITE/
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+Yes, I would have to say the content throughout the weeks in the labs have greatly prepared me for the big weekly assignment. Major factors that contributed to my success this week was our great instructor, Doug, the TAs, and the invaluable experience from completing the weekly labs. Although at times it feels like a struggle, these labs have been extremely helpful and are a resource that I can frequently look back on to remember the key ideas from each week. Some of the features that were extremely helpful in the labs were using APIs, and getting familiar with JSONs and the forEach loop. The only feature I was underprepared for was the stretch feature to enable a popup, but I was still able to implement this feature and continue learning along the way.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+If I had more time to complete this assignment, I would have definitely added additional features on top of what my website had. For instance, I would have liked to add information about which streaming platforms you could rent/buy the movie at, and for what price. Another feature I had noticed from my peers that I would have liked to include is a scroll to the top button. This would come in handy after a user has been scrolling down for a while and would like to be brought back up to the top of the feed. Another change I would have made to my project is within my functions, displayResults and getResults. I was unable to fix a specific issue between these functions before Friday, so I had to do a makeshift fix which is perfectly fine, but I would have preferred my code to look cleaner and be as simplistic as possible.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
@@ -65,4 +65,4 @@ Add your response here
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Very grateful to TA Snigdha Singh, she's been extremely helpful for not only helping me with my coding obstacles, but properly teaching me to really use all of the resources around me. Snigdha really emphasizes the learning process, and it clearly shows by the way she communicates with others.
