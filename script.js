@@ -83,13 +83,26 @@ async function getResults(apiUrl) {
 
 function displayResults(moviesList) {
     moviesList.results.forEach((movie) => {
-        movieGrid.innerHTML += ` 
-        <div class = "movie-card">
-            <h2 class = "movie-title">${movie.original_title}</h2>
-            <img class = "movie-poster" onclick = "popUp(${movie.id})" src="https://image.tmdb.org/t/p/w400/${movie.poster_path}" alt="Poster for ${movie.original_title}">
-            <div class ="voting-info"><img class = "movie-voting-image" src="star.png" alt="Star emoticon" width = "40px" height = "40px"></img><p class ="movie-votes">${movie.vote_average}/10 - </p>
-            <p class = "movie-release-date">Released on ${movie.release_date}</p></div>
-        </div>`
+        if (movie.poster_path) {
+            movieGrid.innerHTML += ` 
+            <div class = "movie-card">
+                <h2 class = "movie-title">${movie.original_title}</h2>
+                <img class = "movie-poster" onclick = "popUp(${movie.id})" src="https://image.tmdb.org/t/p/w400/${movie.poster_path}" alt="Poster for ${movie.original_title}">
+                <div class ="voting-info"><img class = "movie-voting-image" src="star.png" alt="Star emoticon" width = "40px" height = "40px"></img><p class ="movie-votes">${movie.vote_average}/10 - </p>
+                <p class = "movie-release-date">Released on ${movie.release_date}</p></div>
+            </div>`
+
+        }
+        else {
+            movieGrid.innerHTML += ` 
+            <div class = "movie-card">
+                <h2 class = "movie-title">${movie.original_title}</h2>
+                <img class = "movie-poster" onclick = "popUp(${movie.id})" src="placeholder-poster.jpg" width = "400px" height = "550px" alt="Poster for ${movie.original_title}">
+                <div class ="voting-info"><img class = "movie-voting-image" src="star.png" alt="Star emoticon" width = "40px" height = "40px"></img><p class ="movie-votes">${movie.vote_average}/10 - </p>
+                <p class = "movie-release-date">Released on ${movie.release_date}</p></div>
+            </div>`
+        }
+
 
     });
 }
@@ -113,15 +126,35 @@ async function popUp(movieID) {
     console.log("videoResponse is: ", videoResponse);
     let videoResponseData =  await videoResponse.json();
     console.log("VIDEO DATA IS:", videoResponseData)
-    console.log(123, videoResponseData.results[0].key)
+
+    videoResponseData.results.forEach((movie, index) => {
+        if (videoResponseData.results[index].name.includes('Official') || videoResponseData.results[index].name.includes('Original')){
+            trailerKey = videoResponseData.results[index].key;
+            console.log(trailerKey);
+        }
+        else {
+            relatedVideoKey = videoResponseData.results[index].key;
+        }
+
+    })
   
     
     popupContent.innerHTML = `
         <span class = "close-popup-span" onclick = "closePopup()">&times;</span>
-        <iframe class = "popup-video" src="https://www.youtube.com/embed/${videoResponseData.results[0].key}" allow="fullscreen;" allowfullscreen alt="Video trailer for${responseData.original_title}"></iframe>
+        <h2 class = "popup-trailer-title"><em>OFFICIAL TRAILER</em></h2>
+        <iframe class = "popup-video" src="https://www.youtube.com/embed/${trailerKey}" allow="fullscreen;" allowfullscreen alt="Video trailer for${responseData.original_title}"></iframe>
+        <div class ="popup-heading">
         <h3 class ="popup-title">${responseData.original_title}</h3>
+        <h5 class = "popup-tagline"><em>${responseData.tagline}</em></h5>
+        </div>
         <p class = "popup-info">${responseData.runtime} min | ${responseData.genres[0].name}, ${responseData.genres[1].name}</p>
         <p class ="popup-description">${responseData.overview}</p>
+
+        <h3 class = "popup-related-videos">Related Videos & Images:</h3>
+        <iframe class = "popup-related-vid" src="https://www.youtube.com/embed/${relatedVideoKey}" allow="fullscreen;" allowfullscreen ></iframe>
+        <img class = "popup-backdrop" src="https://image.tmdb.org/t/p/w400/${responseData.backdrop_path}"></img>
+
+
     
     
     
