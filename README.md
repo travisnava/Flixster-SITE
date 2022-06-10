@@ -2,7 +2,7 @@
 
 Submitted by: **TRAVIS NAVARRO**
 
-Estimated time spent: **18** hours spent in total
+Estimated time spent: **25** hours spent in total
 
 Deployed Application (optional): https://travisnava.github.io/Flixster-SITE/
 
@@ -32,17 +32,22 @@ Deployed Application (optional): https://travisnava.github.io/Flixster-SITE/
 
 #### STRETCH FEATURES
 
+
+
+
+
 - [X] Deploy website using GitHub Pages. 
 - [X] Allow user to view more details about a movie within a popup.
 - [X] Improve the user experience through CSS & animation.
 - [X] Allow movie video trailers to be played using [embedded YouTube](https://support.google.com/youtube/answer/171780?hl=en)
 - [X] Implement anything else that you can get done to improve the app functionality!
   - [X] Added alert box to prompt user to enter a movie when user tries to search without inputting any text into the search bar.
-  - [X] Added the movie tagline and related videos to the official trailer in the popup window.
+  - [X] Added the movie tagline and related videos & images  in the popup window.
 
 ### Walkthrough Video
 
-https://user-images.githubusercontent.com/65472356/172992749-91db4338-5ec4-4043-898f-aa86d312ff17.mp4
+https://user-images.githubusercontent.com/65472356/173157380-16bfa1a5-d37f-4e10-9b93-808d743fa9ec.mp4
+
 
 
 ### Reflection
@@ -57,11 +62,12 @@ If I had more time to complete this assignment, I would have definitely added ad
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+I was able to clearly highlight all of the features I was proud of implementing, especially the stretch features I had created on my own. Some things I noticed that my peers have creatively implemented is a color coding on the rating of the movie. I thought this was a very creative and appealing touch that I will definitely keep in mind for future projects. 
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+- https://developers.themoviedb.org/3/getting-started
+- https://www.flaticon.com/
 
 ### Shout out
 
