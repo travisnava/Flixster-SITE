@@ -7,10 +7,9 @@ const apiKey = "c8c76922ee7c4dd97d3748894c18cac3"
 //global var
 var offset = 1;
 var searchTerm = "";
-
-
 var popupWindow = document.getElementById("movie-popup-window");
 var popupContent = document.getElementById("movie-popup-content");
+
 
 // grabbing elements
 let movieSearchForm = document.querySelector("#form");
@@ -18,8 +17,6 @@ let movieGrid = document.querySelector("#movies-grid");
 let closeBtn = document.querySelector("#close-search-btn");
 let loadBtn = document.querySelector("#load-more-movies-btn");
 let searchInput = document.querySelector("#search-input");
-
-
 let moviePoster = document.querySelector("#movie-poster");
 
 
@@ -45,7 +42,7 @@ movieSearchForm.addEventListener("submit", (evt) => {
         movieGrid.innerHTML = "";
     }
     else{
-        alert("Enter a movie to search for!")
+        alert("Enter a movie to search for!");
     }
   
 })
@@ -98,11 +95,35 @@ function displayResults(moviesList) {
 
 
 
-function popUp(movieID) {
+async function popUp(movieID) {
     console.log(123123, movieID);
+
+    // api calls to grab MOVIE INFORMATION
     let apiUrl = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + apiKey + "&language=en-US"
     console.log(apiUrl);
-    //console.log(getResults(apiUrl))
+    let response =  await fetch(apiUrl);
+    console.log("response is: ", response);
+    let responseData =  await response.json();
+    console.log("POPUP DATA IS:", responseData)
+
+    // api calls to grab VIDEO ID
+    let videoapiUrl = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" + apiKey + "&language=en-US"
+    let videoResponse =  await fetch(videoapiUrl);
+    console.log("videoResponse is: ", videoResponse);
+    let videoResponseData =  await videoResponse.json();
+    console.log("VIDEO DATA IS:", videoResponseData)
+    console.log(123, videoResponseData.results[0].key)
+  
+    
+    popupContent.innerHTML = `
+        <iframe class = "popup-video" src="https://www.youtube.com/embed/${videoResponseData.results[0].key}" allow="fullscreen;" allowfullscreen alt="Video trailer for${responseData.original_title}"></iframe>
+        <h3 class ="popup-title">${responseData.original_title}</h3>
+        <p class = "popup-info">${responseData.runtime} min | ${responseData.genres[0].name}, ${responseData.genres[1].name}</p>
+        <p class ="popup-description">${responseData.overview}</p>
+    
+    
+    
+    `
 
 
     popupWindow.style.display = "block";
