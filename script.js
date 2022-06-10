@@ -40,6 +40,7 @@ movieSearchForm.addEventListener("submit", (evt) => {
         console.log("apiUrl =", apiUrl);
         getResults(apiUrl);
         movieGrid.innerHTML = "";
+        closeBtn.style.display = "block";
     }
     else{
         alert("Enter a movie to search for!");
@@ -116,6 +117,7 @@ async function popUp(movieID) {
   
     
     popupContent.innerHTML = `
+        <span class = "close-popup-span" onclick = "closePopup()">&times;</span>
         <iframe class = "popup-video" src="https://www.youtube.com/embed/${videoResponseData.results[0].key}" allow="fullscreen;" allowfullscreen alt="Video trailer for${responseData.original_title}"></iframe>
         <h3 class ="popup-title">${responseData.original_title}</h3>
         <p class = "popup-info">${responseData.runtime} min | ${responseData.genres[0].name}, ${responseData.genres[1].name}</p>
@@ -142,15 +144,16 @@ function revealButton() {
     loadBtn.style.display = "inline-block";
 }
 
+function closePopup() {
+    popupWindow.style.display = "none";
+}
+
 
 window.onload = function() {
-
     let apiUrl = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + apiKey + "&language=en-US" + "&page=" + offset
     getResults(apiUrl);
     
-
 }
-
 
 
 window.onclick = function(event) {

@@ -74,6 +74,10 @@
     line-height: 26px;
 }
 
+#close-search-btn {
+    display: none;
+}
+
 ::placeholder {
     color:white;
 }
@@ -166,9 +170,12 @@ body {
 }
 
 .popup-video {
-    margin-left: 25%;
-    width: 800px;
-    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: 50vh;
+    height: 30vh;
+    margin:auto;
 
 }
 
@@ -187,4 +194,21 @@ body {
 
 .popup-info, .popup-description, .popup-title {
     color: white;
+}
+
+
+
+.close-popup-span {
+    color: #ffffff;
+    float: right;
+    font-size: 48px;
+    font-weight: bold;
+    margin-right: 24px;
+}
+
+.close-popup-span:hover,
+.close-popup-span:focus {
+  color: #aaaaaa;
+  text-decoration: none;
+  cursor: pointer;
 }
