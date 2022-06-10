@@ -127,38 +127,53 @@ async function popUp(movieID) {
     let videoResponseData =  await videoResponse.json();
     console.log("VIDEO DATA IS:", videoResponseData)
 
-    videoResponseData.results.forEach((movie, index) => {
-        if (videoResponseData.results[index].name.includes('Official') || videoResponseData.results[index].name.includes('Original')){
-            trailerKey = videoResponseData.results[index].key;
-            console.log(trailerKey);
-        }
-        else {
-            relatedVideoKey = videoResponseData.results[index].key;
-        }
 
-    })
-  
+    if (videoResponseData.results.length > 0) {
+        videoResponseData.results.forEach((movie, index) => {
+            if (videoResponseData.results[index].name.includes('Official') || videoResponseData.results[index].name.includes('Original')){
+                trailerKey = videoResponseData.results[index].key;
+                console.log(trailerKey);
+            }
+            else {
+                relatedVideoKey = videoResponseData.results[index].key;
+            }
+        })
+      
+        popupContent.innerHTML = `
+            <span class = "close-popup-span" onclick = "closePopup()">&times;</span>
+            <h2 class = "popup-trailer-title"><em>OFFICIAL TRAILER</em></h2>
+            <iframe class = "popup-video" src="https://www.youtube.com/embed/${trailerKey}" allow="fullscreen;" allowfullscreen alt="Video trailer for${responseData.original_title}"></iframe>
+            <div class ="popup-heading">
+            <h3 class ="popup-title">${responseData.original_title}</h3>
+            <h5 class = "popup-tagline"><em>${responseData.tagline}</em></h5>
+            </div>
+            <p class = "popup-info">${responseData.runtime} min | ${responseData.genres[0].name}, ${responseData.genres[1].name}</p>
+            <p class ="popup-description">${responseData.overview}</p>
     
-    popupContent.innerHTML = `
+            <h3 class = "popup-related-videos">Related Videos & Images:</h3>
+            <iframe class = "popup-related-vid" src="https://www.youtube.com/embed/${relatedVideoKey}" allow="fullscreen;" allowfullscreen ></iframe>
+            <img class = "popup-backdrop" src="https://image.tmdb.org/t/p/w400/${responseData.backdrop_path}"></img>
+        `
+
+
+
+    }
+    else {
+        popupContent.innerHTML = `
         <span class = "close-popup-span" onclick = "closePopup()">&times;</span>
         <h2 class = "popup-trailer-title"><em>OFFICIAL TRAILER</em></h2>
-        <iframe class = "popup-video" src="https://www.youtube.com/embed/${trailerKey}" allow="fullscreen;" allowfullscreen alt="Video trailer for${responseData.original_title}"></iframe>
         <div class ="popup-heading">
         <h3 class ="popup-title">${responseData.original_title}</h3>
         <h5 class = "popup-tagline"><em>${responseData.tagline}</em></h5>
         </div>
-        <p class = "popup-info">${responseData.runtime} min | ${responseData.genres[0].name}, ${responseData.genres[1].name}</p>
+        <p class = "popup-info">${responseData.runtime} min</p>
         <p class ="popup-description">${responseData.overview}</p>
 
-        <h3 class = "popup-related-videos">Related Videos & Images:</h3>
-        <iframe class = "popup-related-vid" src="https://www.youtube.com/embed/${relatedVideoKey}" allow="fullscreen;" allowfullscreen ></iframe>
-        <img class = "popup-backdrop" src="https://image.tmdb.org/t/p/w400/${responseData.backdrop_path}"></img>
-
-
-    
-    
-    
     `
+
+    }
+
+
 
 
     popupWindow.style.display = "block";
