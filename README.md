@@ -41,9 +41,8 @@ Deployed Application (optional): https://travisnava.github.io/Flixster-SITE/
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
+https://user-images.githubusercontent.com/65472356/172992749-91db4338-5ec4-4043-898f-aa86d312ff17.mp4
 
-`ADD_EMBEDDED_CODE_HERE`
 
 ### Reflection
 
@@ -64,5 +63,9 @@ Add your response here
 - Add any links to open-source libraries used in your project.
 
 ### Shout out
+
+
+
+
 
 Very grateful to TA Snigdha Singh, she's been extremely helpful for not only helping me with my coding obstacles, but properly teaching me to really use all of the resources around me. Snigdha really emphasizes the learning process, and it clearly shows by the way she communicates with others.
