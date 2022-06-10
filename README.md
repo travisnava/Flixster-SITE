@@ -37,7 +37,8 @@ Deployed Application (optional): https://travisnava.github.io/Flixster-SITE/
 - [X] Improve the user experience through CSS & animation.
 - [X] Allow movie video trailers to be played using [embedded YouTube](https://support.google.com/youtube/answer/171780?hl=en)
 - [X] Implement anything else that you can get done to improve the app functionality!
-  - [X] Added alert box to prompt user to enter a movie when user tries to search without inputting any text into the search bar.   
+  - [X] Added alert box to prompt user to enter a movie when user tries to search without inputting any text into the search bar.
+  - [X] Added the movie tagline and related videos to the official trailer in the popup window.
 
 ### Walkthrough Video
 
